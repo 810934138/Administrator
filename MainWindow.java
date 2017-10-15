@@ -6,13 +6,13 @@ import java.io.IOException;
 import java.awt.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.ImageIcon;
-//import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+//text for 2
 class  GraphViz{
     private String runPath = "";
     private String dotPath = "";
