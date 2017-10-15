@@ -1,10 +1,10 @@
 import java.sql.*;
-
+//text b1
 public class my {
  public static void main(String args[])
  {
      try {
-          Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序   
+          Class.forName("com.mysql.jdbc.Driver");     //加载MYSQL JDBC驱动程序
           //Class.forName("org.gjt.mm.mysql.Driver");
          System.out.println("Success loading Mysql Driver!");
         }
@@ -14,7 +14,7 @@ public class my {
         }
   try {
       Connection connect = DriverManager.getConnection( "jdbc:mysql://localhost:3306/test","root","1234");
-     
+
        int num=100;
        PreparedStatement Statement=connect.prepareStatement("INSERT INTO user VALUES(?,?)");
        for(int i=0;i<num;i++)        //定义个100次的循环，往表里插入一百条信息。
