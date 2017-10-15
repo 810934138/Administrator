@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-//text b1
+//text for 2
 class  GraphViz{
     private String runPath = "";
     private String dotPath = "";
