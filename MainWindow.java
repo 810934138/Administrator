@@ -1,24 +1,21 @@
-//import java.util.Scanner;
 import java.io.*;
 import java.util.Random;//孙旭岩添加
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.*;
-//import java.awt.event.*;
-//import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.ImageIcon;
-//import javax.swing.JButton; 
-import javax.swing.JPanel; 
-import java.awt.event.ActionListener; 
-import java.awt.event.ActionEvent; 
-import javax.swing.JFileChooser; 
+//import javax.swing.JButton;
+import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JLabel; 
+import javax.swing.JLabel;
 class  GraphViz{
     private String runPath = "";
-    private String dotPath = ""; 
+    private String dotPath = "";
     private String runOrder="";
     private String dotCodeFile="dotcode.txt";
     private String resultGif="dotGif";
@@ -58,10 +55,10 @@ class  GraphViz{
             FileOutputStream fos = new FileOutputStream(file);
             fos.write(dotcode.getBytes());
             fos.close();
-        } catch (java.io.IOException ioe) { 
+        } catch (java.io.IOException ioe) {
             ioe.printStackTrace();
         }
-     }  
+     }
 
     public GraphViz(String runPath,String dotPath,String nameGraph) {
         this.runPath=runPath;
@@ -87,7 +84,7 @@ class  GraphViz{
 
     public void end_graph() {
         graph.append("}") ;
-    }   
+    }
 }
 
 class graph {//图的结构
@@ -132,7 +129,7 @@ class graph {//图的结构
     	}
     	for(i=0;i<this.point_num;i++)
     	{
-    		if(this.link[posA][i]>0) 
+    		if(this.link[posA][i]>0)
     		{
     			ans[posAns]=i;
     			posAns++;
@@ -149,7 +146,7 @@ class Directed_graph {//图的功能
 	static String out="";
 	static int[][]visted=new int[N][N];
 	public static void CreateGraph(String path) throws IOException//生成有向图的函数
-	{	
+	{
 		int flag,point;
 		char []temp_chars=new char[1000];
 		FileReader fr=new FileReader(path);
@@ -360,7 +357,7 @@ class Directed_graph {//图的功能
 		}
 		return word_out;
 	}
-	
+
 	public static String calcShortestPath(String word1, String word2)//计算最短路径的函数
     {
 		int [][]matrix=new int[G.point_num][G.point_num];
@@ -377,7 +374,7 @@ class Directed_graph {//图的功能
     		if (G.point[i].equals(word2)==true)
     			int_word2=i;
     	}
-    	
+
     	if (int_word1==-1&&int_word2==-1)
     		answer=1;
     	else if(int_word1!=-1&&int_word2==-1)
@@ -397,7 +394,7 @@ class Directed_graph {//图的功能
 		    		{
 		    			if (G.link[i][j]!=0)
 		    			{
-		    				
+
 		    				matrix[i][j]=G.link[i][j];
 		    			}
 		    			else
@@ -498,7 +495,7 @@ class Directed_graph {//图的功能
 		result=temp.toString();
 		return result;
 	}
-    
+
 	public static String randomWalk() throws IOException {//随机游走的函数
 		int pre=random_pos;
 		Random random1=new Random();
@@ -573,7 +570,7 @@ class Directed_graph {//图的功能
     	}
 		return A.length;
     }
-	       
+
 }
 class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 {
@@ -583,34 +580,34 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 	static FunctionWindows frm3=new FunctionWindows();
 	static FunctionWindows frm4=new FunctionWindows();
 	static FunctionWindows frm5=new FunctionWindows();
-	
+
 	static Button btn11=new Button("展示");
 	static Button btn12=new Button("退出");
 	static TextArea txa11=new TextArea("",6,10,TextArea.SCROLLBARS_NONE);
-	
+
 	static TextArea txa211=new TextArea("",6,10,TextArea.SCROLLBARS_NONE);
 	static TextArea txa212=new TextArea("",6,10,TextArea.SCROLLBARS_NONE);
 	static TextArea txa22=new TextArea("",6,10,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	static Button btn21=new Button("确定");
 	static Button btn22=new Button("退出");
-	
+
 	static TextArea txa31=new TextArea("",6,10,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	static TextArea txa32=new TextArea("",6,10,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	static Button btn31=new Button("开始生成");
 	static Button btn32=new Button("退出");
-	
+
 	static TextArea txa411=new TextArea("",6,10,TextArea.SCROLLBARS_NONE);
 	static TextArea txa412=new TextArea("",6,10,TextArea.SCROLLBARS_NONE);
 	static TextArea txa42=new TextArea("",6,10,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	static Button btn41=new Button("确定");
 	static Button btn42=new Button("退出");
-	
+
 	static TextArea txa51=new TextArea("",6,10,TextArea.SCROLLBARS_NONE);
 	static TextArea txa52=new TextArea("",6,10,TextArea.SCROLLBARS_VERTICAL_ONLY);
 	static Button btn51=new Button("游走");
 	static Button btn52=new Button("退出");
-	
-	
+
+
 	public static void CreateGraphWindow() throws IOException{//GUI：文件读取
 		File f;
 		String path ="";
@@ -625,7 +622,7 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 	    }
 	    path=path.replaceAll("\\\\","\\\\\\\\");
 	    System.out.println(path);
-	    Directed_graph.CreateGraph(path);		
+	    Directed_graph.CreateGraph(path);
 	}
 	public static void showDirectedGraph() {//GUI：展示图窗口
 	    Directed_graph.showDirectedGraph();
@@ -641,7 +638,7 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 		frm1.add(btn12);
 		frm1.add(txa11);
 		frm1.setVisible(true);
-		
+
 	}
 	public static void queryBridgeWordsWindow()//GUI：获取桥接词的窗口
 	{
@@ -671,7 +668,7 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 		btn31.setBounds(80, 350, 80, 40);
 		txa32.setBounds(100, 240, 440, 100);
 		btn32.setBounds(480, 350, 80, 40);
-		
+
 		txa32.setEditable(false);
 		frm3.add(txa31);
 		frm3.add(txa32);
@@ -697,7 +694,7 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 		frm4.add(btn41);
 		frm4.add(btn42);
 		frm4.setVisible(true);
-		
+
 	}
 	public static void randomWalkWindow() {//GUI：随机游走窗口
 		frm5.setLayout(null);
@@ -859,7 +856,7 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 	}
 }
  public class MainWindow extends Frame implements ActionListener//GUI：监听器注册
-{	
+{
 	private static final long serialVersionUID = 1L;
 	   static MainWindow frm=new MainWindow();
 	   static Button btn1=new Button("展示图");
@@ -890,8 +887,8 @@ class FunctionWindows extends Frame implements ActionListener//GUI主体框架定义
 		   frm.add(btn2);
 		   frm.add(btn3);
 		   frm.add(btn4);
-		   frm.add(btn5); 
-		   frm.add(btn6); 
+		   frm.add(btn5);
+		   frm.add(btn6);
 		   FunctionWindows.CreateGraphWindow();
 	   }
 	public void actionPerformed(ActionEvent e)
